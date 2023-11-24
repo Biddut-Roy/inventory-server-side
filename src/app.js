@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000;
 
 const authenticationRoute = require('./routes/authentication/index')
 const User = require('./routes/Users/userIndex')
-
+const review = require('./routes/Testiminial/Review')
 
 
 
@@ -22,6 +22,7 @@ applyMiddelware(app)
 
 app.use(authenticationRoute)
 app.use(User)
+app.use(review)
 
 
 
