@@ -1,15 +1,14 @@
-const ganaratToken = require("../../../lib/Authentication/genaretor");
+const createToken = require('../../../lib/Authentication/genaretor')
 
 
 
 
-const createToken = async (req, res, next) => {
-    try {
-        const user = req.body
-        ganaratToken(user)
-    } catch (error) {
-        next(error)
-    }
+const createAuthCookie = async (req, res) => {
+
+        const user = req.body;
+        console.log(user)
+        const token = createToken(user)
+        res.send({ token })
 }
 
-module.exports = createToken
+module.exports = createAuthCookie
