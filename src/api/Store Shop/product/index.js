@@ -1,5 +1,7 @@
-const product = require('./index')
+const product = require('./product')
+const getProduct = require('./getProduct')
 
 module.exports = {
-    product
+    product ,
+    getProduct
 }

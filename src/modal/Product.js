@@ -1,21 +1,18 @@
 const { model, Schema } = require('mongoose');
 
 const productSchema = new Schema({
-    productId: {
-        type: Number,
-        unique: true,
-      },
+ 
     saleCount: {
         type: Number,
         default: 0,
     },
     date: {
         type: Date,
-        required: true,
+       
     },
     user_email: {
         type: String,
-        required: true,
+       
     },
     shop_Id: {
         type: Schema.Types.ObjectId,
@@ -61,20 +58,6 @@ const productSchema = new Schema({
         type: String,
     },
 });
-
-productSchema.pre('save', async function (next) {
-    try {
-      if (this.isNew) {
-        const highestStore = await this.constructor.findOne().sort('-productId').exec();
-  
-        this.storeId = highestStore ? highestStore.storeId + 1 : 101010;
-      }
-  
-      next();
-    } catch (error) {
-      next(error);
-    }
-  });
 
 const Product = model('Product', productSchema);
 

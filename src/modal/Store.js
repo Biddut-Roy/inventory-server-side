@@ -2,10 +2,10 @@ const { model, Schema } = require('mongoose');
 
 
 const storeSchema = new Schema({
-  storeId: {
-    type: Number,
-    unique: true,
-  },
+  // StoreId: {
+  //   type: String,
+  //   unique: true,
+  // },
   limit: {
     type: Number,
     default: 3,
@@ -23,7 +23,7 @@ const storeSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
+
   },
   name: {
     type: String,
@@ -35,23 +35,23 @@ const storeSchema = new Schema({
   },
   shop_name: {
     type: String,
-   
-  },
-});
-
-storeSchema.pre('save', async function (next) {
-  try {
-    if (this.isNew) {
-      const highestStore = await this.constructor.findOne().sort('-storeId').exec();
-
-      this.storeId = highestStore ? highestStore.storeId + 1 : 1000;
-    }
-
-    next();
-  } catch (error) {
-    next(error);
+    required: true,
   }
 });
+
+// storeSchema.pre('save', async function (next) {
+//   try {
+//     if (this.isNew) {
+//       const highestStore = await this.constructor.findOne().sort('-StoreId').exec();
+
+//       this.StoreId = highestStore ? highestStore.StoreId + 1 : 11000;
+//     }
+
+//     next();
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
 const Store = model('Store', storeSchema);
 

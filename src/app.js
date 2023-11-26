@@ -10,6 +10,7 @@ const User = require('./routes/Users/userIndex')
 const review = require('./routes/Testiminial/Review')
 const shop = require('./routes/Create Shop/shop')
 const product = require('./routes/Create Shop/product/product')
+const updateProduct = require('./routes/Create Shop/updateProduct/update')
 
 app.get('/', async (req, res) => {
     res.send('check my server health')
@@ -23,6 +24,7 @@ app.use(User)
 app.use(review)
 app.use(shop)
 app.use(product)
+app.use(updateProduct)
 
 
 
