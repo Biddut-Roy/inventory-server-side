@@ -11,6 +11,7 @@ const review = require('./routes/Testiminial/Review')
 const shop = require('./routes/Create Shop/shop')
 const product = require('./routes/Create Shop/product/product')
 const updateProduct = require('./routes/Create Shop/updateProduct/update')
+const checkOut = require('./routes/Create Shop/check-Out/checkout')
 
 app.get('/', async (req, res) => {
     res.send('check my server health')
@@ -25,6 +26,7 @@ app.use(review)
 app.use(shop)
 app.use(product)
 app.use(updateProduct)
+app.use(checkOut)
 
 
 
