@@ -5,7 +5,6 @@ const update = async (req, res) => {
 
     const id = req.params?.id;
     const body = req.body;
-    console.log(body);
     const query = { _id: id };
 
     const updateDoc = {

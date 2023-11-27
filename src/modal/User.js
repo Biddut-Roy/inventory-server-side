@@ -10,6 +10,10 @@ const UsersSchema = new Schema({
         type: String,
         required: true,
     },
+
+    income: {
+        type: Number,
+    },
 })
 
 const Users = model("Users", UsersSchema)
