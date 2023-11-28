@@ -16,6 +16,7 @@ const payment = require('./routes/Payment/payment')
 const PaymentUpdate  = require('./routes/Payment/paymentUpdate')
 const admin = require("./routes/authentication/adminVerify")
 const summry = require('./routes/Create Shop/summery/summry')
+const mailer = require('./routes/NodeMailer/mailer')
 
 app.get('/', async (req, res) => {
     res.send('check my server health')
@@ -36,6 +37,7 @@ app.use(checkOut)
 app.use(payment)
 app.use(PaymentUpdate)
 app.use(summry)
+app.use(mailer)
 
 
 

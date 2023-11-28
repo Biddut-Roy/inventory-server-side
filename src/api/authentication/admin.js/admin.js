@@ -15,7 +15,7 @@ const admin = async (req, res) => {
             isAdmin = true
         }
  
-    res.send({ isAdmin })
+    res.send({ isAdmin , user })
 }
 
 module.exports = admin;

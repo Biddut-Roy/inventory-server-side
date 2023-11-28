@@ -2,12 +2,10 @@ const Product = require('../../../modal/Product')
 
 
 
-const getProduct =   async (req, res) => {
+const getAllProduct =   async (req, res) => {
     try {
-        const email = req.params?.email;
-        const query = { user_email: email };
 
-        const result = await Product.find(query);
+        const result = await Product.find();
         res.send(result);
     } catch (error) {
         console.error(error);
@@ -15,4 +13,4 @@ const getProduct =   async (req, res) => {
     }
 };
 
-module.exports = getProduct ;
+module.exports = getAllProduct ;
