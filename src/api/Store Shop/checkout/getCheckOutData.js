@@ -2,42 +2,35 @@ const CheckOut = require('../../../modal/CheckOut');
 const Product = require('../../../modal/Product');
 
 const getCheckOutData = async (req, res) => {
+    const query = req.query?.email
+
     try {
-        // const result = await CheckOut.find();
+        const product = await CheckOut.find({ email: query });
 
-        const dataCount = await CheckOut.aggregate([
+        const count = await CheckOut.estimatedDocumentCount({ email: query });
+
+        const totals = await CheckOut.aggregate([
             {
-                $unwind: '$mainId'
-            },
-            {
-                $lookup: {
-                    from: 'Product',
-                    localField: 'mainId',
-                    foreignField: '_id',
-                    as: '_id'
+                $group: {
+                    _id: null,
+                    totalDiscount: { $sum: '$discount' },
                 }
-            },
-            {
-                $unwind: '$_id'
-            },
-            // {
-            //     $group: {
-            //         _id: '$ProductsId.product_name',
-            //         count: { $sum: 1 },
-            //         revenue: { $sum: '$ProductsId.sellingPrice' }
-            //     },
-            // },
-            // {
-            //     $project: {
-            //         _id: 0,
-            //         category: '$_id',
-            //         count: '$count',
-            //         totalRevenue: '$revenue'
-            //     }
-            // }
-        ]);
+            }
+        ])
+        const discount = totals.length > 0 ? totals[0].totalDiscount : 0;
 
-        res.send(dataCount);
+        const prices = await CheckOut.aggregate([
+            {
+                $group: {
+                    _id: null,
+                    totalRevenue: { $sum: '$sellingPrice' },
+                }
+            }
+        ])
+
+        const totalPay = prices.length > 0 ? prices[0].totalRevenue : 0;
+
+        res.send({product , discount , totalPay , count });
 
     } catch (error) {
         console.error('Error retrieving checkout data:', error);

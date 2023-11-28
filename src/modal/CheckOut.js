@@ -7,6 +7,26 @@ const checkoutSchema = new Schema({
         ref: 'Product', 
         required: true,
     },
+    product_name: {
+        type: String,
+        required: true,
+    },
+    sellingPrice: {
+        type: Number,
+        required: true,
+    },
+    photo: {
+        type: String,
+        required: true,
+    },
+    discount: {
+        type: Number,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+    },
 });
 
 const Checkout = model('Checkout', checkoutSchema);

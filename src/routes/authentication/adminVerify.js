@@ -4,7 +4,7 @@ const admin = require("../../api/authentication/admin.js/admin");
 const verifyToken = require('../../middelware/verifyToken')
 
 
-router.get('/api/users/admin/:email',verifyToken, admin)
+router.get('/api/users/admin/:email', admin)
 
 
 module.exports = router

@@ -1,7 +1,6 @@
 const express = require("express");
-const checkout = require("../../../api/Store Shop/checkout/checkout");
-const getCheckOutData = require("../../../api/Store Shop/checkout/getCheckOutData");
-const updateCard = require("../../../api/Store Shop/checkout/updateCard");
+const { getCheckOutData, updateCard, checkout } = require("../../../api/Store Shop/checkout");
+
 const router = express.Router();
 
 
