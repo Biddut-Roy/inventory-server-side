@@ -5,8 +5,7 @@ const SellProduct = require('../../../modal/SellProduct')
 const updateCard = async (req , res) =>{
 
     const body = req.body ;
-    const email = req.query.email
-    console.log(body);
+    const email = req.query.email;
     try {
       const DeleteQuery = {email : email}
 

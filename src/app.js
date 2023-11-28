@@ -15,7 +15,7 @@ const checkOut = require('./routes/Create Shop/check-Out/checkout')
 const payment = require('./routes/Payment/payment')
 const PaymentUpdate  = require('./routes/Payment/paymentUpdate')
 const admin = require("./routes/authentication/adminVerify")
-
+const summry = require('./routes/Create Shop/summery/summry')
 
 app.get('/', async (req, res) => {
     res.send('check my server health')
@@ -35,7 +35,7 @@ app.use(updateProduct)
 app.use(checkOut)
 app.use(payment)
 app.use(PaymentUpdate)
-
+app.use(summry)
 
 
 
@@ -54,10 +54,12 @@ app.use((err, req, res, next) => {
 })
 
 
-const main = async () => {
-    await connectDB()
-    app.listen(port, async (req, res) => {
-        console.log(`listening on ${port}`);
-    });
-}
-main()
+// const main = async () => {
+//     await connectDB()
+//     app.listen(port, async (req, res) => {
+//         console.log(`listening on ${port}`);
+//     });
+// }
+// main()
+
+module.exports = app ;

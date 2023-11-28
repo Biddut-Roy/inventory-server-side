@@ -23,6 +23,10 @@ const checkoutSchema = new Schema({
         type: Number,
         required: true,
     },
+    cost: {
+        type: Number,
+        required: true,
+    },
     email: {
         type: String,
         required: true,

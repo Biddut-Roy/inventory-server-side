@@ -12,6 +12,10 @@ const SellProductSchema = new Schema({
     type: Number,
     required: true,
   },
+  cost: {
+    type: Number,
+    required: true,
+},
   date: {
     type: Date,
     default: Date.now,
