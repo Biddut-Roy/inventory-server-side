@@ -25,8 +25,7 @@ const PaymentUpdate = async (req, res) => {
         const updateAdminIncome = {
             $set: { income: totalIncome }
         }
-console.log( updateDocStore , updateAdminIncome );
-
+        
         const updateQuantityByShop = await Store.updateOne(storeQuery, updateDocStore)
 
         let adminUpdate = await User.updateOne(query, updateAdminIncome);

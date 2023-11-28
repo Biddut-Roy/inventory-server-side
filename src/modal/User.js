@@ -14,6 +14,12 @@ const UsersSchema = new Schema({
     income: {
         type: Number,
     },
+    shop_name: {
+        type: String,
+    },
+    roll: {
+        type: String,
+    },
 })
 
 const Users = model("Users", UsersSchema)

@@ -1,23 +1,25 @@
 const CheckOut = require('../../../modal/CheckOut');
+const Product = require('../../../modal/Product');
 
 const getCheckOutData = async (req, res) => {
     try {
-        const result = await CheckOut.find();
-        // const dataCount = await CheckOut.aggregate([
-            // {
-            //     $unwind: '$mainId'
-            // },
-            // {
-            //     $lookup: {
-            //         from: 'Product',
-            //         localField: 'mainId',
-            //         foreignField: '_id',
-            //         as: '_id'
-            //     }
-            // },
-            // {
-            //     $unwind: '$_id'
-            // },
+        // const result = await CheckOut.find();
+
+        const dataCount = await CheckOut.aggregate([
+            {
+                $unwind: '$mainId'
+            },
+            {
+                $lookup: {
+                    from: 'Product',
+                    localField: 'mainId',
+                    foreignField: '_id',
+                    as: '_id'
+                }
+            },
+            {
+                $unwind: '$_id'
+            },
             // {
             //     $group: {
             //         _id: '$ProductsId.product_name',
@@ -33,8 +35,9 @@ const getCheckOutData = async (req, res) => {
             //         totalRevenue: '$revenue'
             //     }
             // }
-        // ]);
-        res.send(result);
+        ]);
+
+        res.send(dataCount);
 
     } catch (error) {
         console.error('Error retrieving checkout data:', error);

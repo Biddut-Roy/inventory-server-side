@@ -1,8 +1,5 @@
 const createToken = require('../../../lib/Authentication/genaretor')
 
-
-
-
 const createAuthCookie = async (req, res) => {
 
         const user = req.body;

@@ -14,7 +14,7 @@ const updateProduct = require('./routes/Create Shop/updateProduct/update')
 const checkOut = require('./routes/Create Shop/check-Out/checkout')
 const payment = require('./routes/Payment/payment')
 const PaymentUpdate  = require('./routes/Payment/paymentUpdate')
-
+const admin = require("./routes/authentication/adminVerify")
 
 
 app.get('/', async (req, res) => {
@@ -25,6 +25,7 @@ app.get('/', async (req, res) => {
 
 applyMiddelware(app)
 
+app.use(admin)
 app.use(authenticationRoute)
 app.use(User)
 app.use(review)
@@ -34,6 +35,7 @@ app.use(updateProduct)
 app.use(checkOut)
 app.use(payment)
 app.use(PaymentUpdate)
+
 
 
 
