@@ -1,6 +1,6 @@
 const cors = require('cors');
 const express = require('express');
-const { LOCAL_CLIENT_URL, CLIENT } = require('../coonfig/default');
+const { LOCAL_CLIENT_URL, CLIENT, CLIENT_1 } = require('../coonfig/default');
 
 
 
@@ -9,8 +9,9 @@ const applyMiddelware = (app) => {
 
 app.use(cors({
     origin: [
+        CLIENT,
+        CLIENT_1,
         LOCAL_CLIENT_URL,
-        CLIENT
     ],
     credentials: true,
 }));

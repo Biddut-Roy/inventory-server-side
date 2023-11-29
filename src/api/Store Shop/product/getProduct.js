@@ -1,7 +1,5 @@
 const Product = require('../../../modal/Product')
 
-
-
 const getProduct =   async (req, res) => {
 
     try {

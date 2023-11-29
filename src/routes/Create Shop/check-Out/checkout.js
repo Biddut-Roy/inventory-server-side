@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 router.post('/checkOut-card',verifyToken,verifyShopAdmin,checkout)
-router.get('/get-card',verifyToken,getCheckOutData)
+router.get('/get-card',verifyToken,verifyShopAdmin,getCheckOutData)
 router.patch('/update-card',verifyToken,verifyShopAdmin,updateCard)
 router.patch('/update-card-item/:id',verifyToken,verifyShopAdmin,StorCountUpdate)
 
