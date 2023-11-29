@@ -11,7 +11,7 @@ app.use(cors({
     origin: [
         CLIENT,
         CLIENT_1,
-        LOCAL_CLIENT_URL,
+        // LOCAL_CLIENT_URL,
     ],
     credentials: true,
 }));
