@@ -1,6 +1,7 @@
 const express = require("express");
 const { shop, getData, allShop } = require("../../api/Store Shop");
 const router = express.Router();
+const verifyToken = require("../../middelware/verifyToken")
 
 
 

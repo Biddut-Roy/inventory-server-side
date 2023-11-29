@@ -3,32 +3,37 @@ require("dotenv").config();
 
 
 const mailer = async (req, res) => {
-const transporter = nodemailer.createTransport({
+
+  const body = req.body;
+  console.log(body);
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
     host: 'smtp.gmail.com',
-    port: 465,
+    port: 587,
     secure: true,
     auth: {
-        user: process.env.MAILER_GMAIL,
-        pass: process.env.MAILER_PASSWORDS,
+      user: process.env.MAILER_GMAIL,
+      pass: process.env.MAILER_PASSWORDS,
     },
-});
-
-async function main() {
-  
-  const info = await transporter.sendMail({
-    from: '"Fred Foo 👻" virjxmvqlm@wireconnected.com', 
-    to: "bar@example.com, baz@example.com", 
-    subject: "Hello ✔", 
-    text: "Hello world?", 
-    html: "<b>Hello world?</b>", 
   });
 
-  console.log("Message sent: %s", info.messageId);
+  async function main() {
 
+    const info = await transporter.sendMail({
+      from: `"IMS Limited 👻" ${body?.mail}`,
+      to: `${body?.mail}`,
+      subject: "Hello ✔ Admin",
+      text: `${body?.field}`,
+      html: `<b>${body?.field}</b>`,
+    });
+
+    console.log("Message sent: %s", info.messageId);
+
+  }
+  main().catch(console.error);
+
+  res.send({ send: true })
 }
-main().catch(console.error);
 
-res.send('mail send ho gaya')
-}
-
-module.exports = mailer ;
+module.exports = mailer;
