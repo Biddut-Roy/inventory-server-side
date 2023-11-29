@@ -3,7 +3,7 @@ const User = require('../../../modal/User')
 
 const admin = async (req, res) => {
     const email = req.params?.email;
-console.log(req.decoded?.email);
+
     // if (email !== req.decoded?.email) {
     //     return res.status(403).send({ message: " forbidden access" })
     // }

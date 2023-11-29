@@ -19,6 +19,7 @@ const update = async (req, res) => {
             description: body?.description,
             photo: body?.photo,
             sellingPrice: body?.sellingPrice,
+            quantity: body?.quantity
         }
     }
 

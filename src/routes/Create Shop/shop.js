@@ -5,11 +5,11 @@ const verifyToken = require("../../middelware/verifyToken")
 
 
 
-router.post("/shop-admin", shop),
+router.post("/shop-admin",verifyToken,shop),
 
-router.get("/shop-data/:email", getData)
+router.get("/shop-data/:email",verifyToken,getData)
 
-router.get("/all-shop-data", allShop)
+router.get("/all-shop-data",verifyToken,allShop)
 
 module.exports = router ;
 

@@ -18,9 +18,9 @@ const updateCard = async (req , res) =>{
             for (const id in idCounts) {
                 const count = idCounts[id];
                 if (count > 1) {
-                    await Product.updateOne({ _id: id }, { $inc: { saleCount: count , quantity: -count} });
+                    await Product.updateOne({ _id: id }, { $inc: { saleCount: count } });
                 }else{
-                  await Product.updateOne({ _id: id }, { $inc: { saleCount: count , quantity: -count } });
+                  await Product.updateOne({ _id: id }, { $inc: { saleCount: count } });
                 }
             }
         };

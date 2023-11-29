@@ -4,6 +4,6 @@ const { review } = require("../../api/Testimonial");
 const router = express.Router();
 
 
-router.get("/review",  review )
+router.get("/review",review )
 
 module.exports = router ;
