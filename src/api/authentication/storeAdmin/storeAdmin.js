@@ -14,7 +14,7 @@ const storeAdmin = async (req, res) => {
         if (user?._doc.roll === 'shop-admin') {
             isStoreAdmin = true
         }
- 
+
     res.send({ isStoreAdmin })
 }
 
