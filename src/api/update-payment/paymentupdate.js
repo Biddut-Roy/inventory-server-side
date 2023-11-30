@@ -4,7 +4,6 @@ const User = require('../../modal/User')
 
 const PaymentUpdate = async (req, res) => {
     const body = req.body;
-    console.log(body);
 
     try {
 
