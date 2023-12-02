@@ -6,7 +6,7 @@ const verifyAdmin = require("../../middelware/VerifyAdmin")
 const verifyShopAdmin  = require("../../middelware/verifyShopAdmin")
 
 
-router.post("/shop-admin",verifyToken,shop),
+router.post("/shop-admin",verifyToken,shop)
 
 router.get("/shop-data/:email",verifyToken,verifyShopAdmin,getData)
 

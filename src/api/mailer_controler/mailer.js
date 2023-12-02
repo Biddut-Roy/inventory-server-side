@@ -5,7 +5,7 @@ require("dotenv").config();
 const mailer = async (req, res) => {
 
   const body = req.body;
-  console.log(body);
+
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',

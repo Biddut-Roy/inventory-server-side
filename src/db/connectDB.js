@@ -19,8 +19,10 @@ const getConnectString = () => {
 
 
 const connectDB = async () =>{
+
     const uri = getConnectString()
-    await mongoose.connect(uri,{dbName:process.env.DB_NAME});
+    await mongoose.connect(uri,{dbName:process.env.DB_NAME})
+
 }
 
 module.exports = connectDB ;
