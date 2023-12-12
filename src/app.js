@@ -1,8 +1,8 @@
 const express = require('express');
 const applyMiddelware = require('./middelware/applyMiddelware');
-const connectDB = require('./db/connectDB');
+// const connectDB = require('./db/connectDB');
 const app = express();
-const port = process.env.PORT || 5000;
+// const port = process.env.PORT || 5000;
 
 
 const authenticationRoute = require('./routes/authentication/index')
