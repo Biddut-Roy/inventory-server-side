@@ -11,4 +11,4 @@
  - jwt token verify system is used to secure the admin section.
  - Mailing is done using Nodemailer.
  - All routes are secured
- - anyone to join live chat-room
+ - anyone to join live chat-room same time
