@@ -1,7 +1,5 @@
 # inventory-server-side :
-
 </br> </br>
-
 ## Used  Technology :
 - Express.js/Node.js/Mongoose/socket.io
 
